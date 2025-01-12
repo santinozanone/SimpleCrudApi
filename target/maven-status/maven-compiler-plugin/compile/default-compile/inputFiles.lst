@@ -1,0 +1,10 @@
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\config\DispatcherServletInitialization.java
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\config\RootConfig.java
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\config\ServletConfig.java
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\controller\UserController.java
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\dto\UserDto.java
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\exception\GlobalExceptionHandler.java
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\exception\UserNotFoundException.java
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\model\User.java
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\repository\UserDao.java
+C:\SpringInits\Workspace\SimpleUserCrud\src\main\java\com\example\crud\service\UserService.java
