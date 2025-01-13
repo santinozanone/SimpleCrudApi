@@ -48,7 +48,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<Object>(problemDetail, HttpStatus.BAD_REQUEST);
 	}
 
-	// Handle NoHandlerFoundException (e.g., an inexistent controller uri)
+	// Handle NoHandlerFoundException (e.g., An inexistent controller uri)
 	@Override
 	protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers,
 			HttpStatusCode status, WebRequest request) {
