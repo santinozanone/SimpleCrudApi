@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -23,26 +25,31 @@ import com.example.crud.service.UserService;
 
 import jakarta.validation.Valid;
 
+
 @RestController
 @RequestMapping("/api/v1")
 public class UserController {
+	private static final Logger logger = LogManager.getLogger(UserController.class);
+
 	private UserService service;
 	
 	@Autowired
 	public UserController(UserService service) {
-		this.service = service;
+		this.service = service;    
 	}
 	
 	
 	@GetMapping("/users/{id}")
 	public ResponseEntity<UserDto> getUserById(@PathVariable("id") int id){
-		Optional<UserDto> userResult = service.getUserById(id);
+		logger.info("GET request to getUserById() with id: '{}' ",id);
+		Optional<UserDto> userResult = service.getUserById(id);	
 		return userResult.map(ResponseEntity::ok).orElseGet(()-> ResponseEntity.notFound().build());
-	
+		
 	}
 	
 	@PostMapping("/users")
 	public ResponseEntity<String> createUser(@Valid @ModelAttribute User user){		
+		logger.info("POST request to createUser() with user:{} ",user);
 		service.createUser(user);
 		return ResponseEntity.ok("User created correctly");
 	}
@@ -60,7 +67,8 @@ public class UserController {
 	
 	
 	@PutMapping("/users/{id}")
-	public ResponseEntity<String> updateUser(@Valid @RequestBody User user,BindingResult result,@PathVariable("id") int id ){			
+	public ResponseEntity<String> updateUser(@Valid @RequestBody User user,BindingResult result,@PathVariable("id") int id ){	
+		logger.info("PUT request to updateUser() with Id: '{}' ",id);
 		service.updateUser(id, user);
 		return ResponseEntity.ok("User updated correctly " + user);
 	}
@@ -68,6 +76,7 @@ public class UserController {
 
 	@DeleteMapping("/users/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable("id") int id){
+		logger.info("DELETE request to deleteUser() with Id: '{}' ",id);
 		service.deleteUser(id);
 		return ResponseEntity.ok("user deleted correctly");
 	}
